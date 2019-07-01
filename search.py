@@ -19,7 +19,7 @@ def loadWords(filename):
     wds = file_content.split()
     return wds
 
-def get_words_in_book(filename):
+def getBookWord(filename):
     f = open(filename, "r")
     content = f.read()
     f.close()
@@ -27,16 +27,16 @@ def get_words_in_book(filename):
     return wds
 
 
-book_words = get_words_in_book("AliceInWonderland.txt")
-vocab = get_words_in_book("vocab.txt")
+book_words = getBookWord("AliceInWonderland.txt")
+vocab = getBookWord("vocab.txt")
 
-unknown_words=find_unknown_words(vocab,book_words)
+unknown_words=unknownWords(vocab,book_words)
 print('there are',len(unknown_words),'unknown_words','they are:',unknown_words)
 
 
-book_words = get_words_in_book("AliceInWonderland.txt")
+book_words = getBookWord("AliceInWonderland.txt")
 print("There are {0} words in the book, the first 100 are\n{1}".
            format(len(book_words), book_words[:100]))
 
-missing_words = find_unknown_words(vocab, book_words)
+missing_words = unknownWords(vocab, book_words)
 print("There are {0} unknown words.".format(len(missing_words)))
